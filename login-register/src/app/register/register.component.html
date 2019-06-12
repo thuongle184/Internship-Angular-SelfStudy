@@ -1,0 +1,45 @@
+<div class="col-md-6 col-md-offset-3">
+  <div class="inforRegisterGroup">     
+    <form [formGroup]="formGroupUserInput" novalidate>
+      <div class="input-group">
+        <label>
+          Id:
+          <input placeholder="id ..." type="number" formControlName="id" value="id" required />
+        </label>
+      </div>
+    
+      <div class="input-group">
+        <label>
+          Username:
+          <input  placeholder="Username ...." type="text" formControlName="username" value="username" required/>
+        </label>
+      </div>
+
+      <div class="input-group">
+        <label>
+          Password:
+          <input placeholder="Password ..." type="text" formControlName="password" value="password" required minlength="6"/>
+        </label>
+      </div>
+
+      <div class="input-group">
+        <label>
+            First name:
+            <input placeholder="first name ..." type="text" formControlName="firstname" value="firstname" required />
+        </label>
+      </div>
+
+      <div class="input-group">
+        <label>
+          Last name:
+          <input placeholder="Last name ..." type="text" formControlName="lastname" value="lastname" required />
+        </label>
+      </div>
+    
+      <div class="action" >
+        <button type="button" [disabled]="!formGroupUserInput.valid" (click)="addNewUser()" [routerLink]="['/login']"  class="btn btn-success">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      </div>
+
+    </form>     
+  </div>
+</div>
