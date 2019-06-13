@@ -9,7 +9,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { Routes, RouterModule } from '@angular/router';
 
-
+ 
 
 //Import RouterModule vào import của app.module
 
@@ -21,10 +21,12 @@ import { Routes, RouterModule } from '@angular/router';
     HomeComponent
   ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

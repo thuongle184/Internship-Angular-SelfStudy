@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Route } from '@angular/router';
-import { usersAcc, user } from '../user';
+import { Component, OnInit } from '@angular/core';
+import {usersAcc, user} from '../user';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +11,10 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
+  
   index = 0;
  
   selectedUser: user;
@@ -22,11 +23,13 @@ export class HomeComponent implements OnInit {
     
   }
 
-  deleteItem(id:number, index:number) {
+  deleteItem(index:number) {
     usersAcc.splice(index, 1);
   }
 
   users = usersAcc;
 
-  
+ 
 }
+
+

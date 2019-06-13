@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import {usersAcc, user} from '../user';
 import { FormControl, FormGroup, Validators, MinLengthValidator } from '@angular/forms';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
+@Injectable()
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router){
+
+  }
 
   ngOnInit() {
   }
@@ -21,23 +25,28 @@ export class LoginComponent implements OnInit {
   });
 
   message: string = "";
+  
   onSubmit(): string {
     //this.formGroupDitectInfor.value;
     console.log(this.formGroupUserInput.value); 
     for (let user of usersAcc ) {
       if (this.formGroupUserInput.value.username == user.username && this.formGroupUserInput.value.password == user.password) {
-        console.log(this.formGroupUserInput.value);
+
         alert("Login successfully! Go to home page ");
-        console.log(user.username, user.password);
-        return this.message = "logged";
-      }
-        
-    }  
+        // console.log(user.username, user.password);
+        return this.message = "logged" 
+      } 
+
+      
+    }   
     
-    if (this.message != "logged") {
-     
-        alert("This account doesn't exist. ");
-         
+    if(this.message == "logged"){
+      this.router.navigate(['/home']);
+    }   
+    else if (this.message != "logged") {  
+        alert("This account doesn't exist. ");      
     }
+
+    
   }
 }
